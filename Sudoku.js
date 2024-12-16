@@ -111,7 +111,7 @@ function solve() {
   let answer = depthfirstsearch(matrix);
   console.log(answer);
 
-  if (typeof(answer) != undefined) {
+  if (answer != undefined) {
     writeboard(answer);
   } else {
     window.alert("There is no solution!");
