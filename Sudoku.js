@@ -111,12 +111,12 @@ function solve() {
   let answer = depthfirstsearch(matrix);
   console.log(answer);
 
-  if (!answer == undefined) {
+  if (typeof(answer) != undefined) {
     writeboard(answer);
   } else {
     window.alert("There is no solution!");
   }
-
+console.log(answer)
   let flatmatrixx = answer.flat();
   let flatmatrixxx = flatmatrixx.join("");
   let inputsol = document.getElementById("input_2");
@@ -129,15 +129,15 @@ function easyinput() {
 
 function random() {
   let data, randpuztemp, puzsoltemp, Mainobj;
-
+  let randnum = Math.floor(Math.random()*100000);
+      
   fetch("sudoku10K.json")
     .then((response) => response.json())
     .then((data) => {
       jsondata = data;
-      console.log(jsondata);
-      let randpuztemp = jsondata[0];
+      let randpuztemp = jsondata[randnum];
       let randpuz = randpuztemp.Puzzle;
-      let puzsoltemp = jsondata[0];
+      let puzsoltemp = jsondata[randnum];
       let puzsol = puzsoltemp.Solution;
 
       writeboard(boardmaker(randpuz));
@@ -151,6 +151,9 @@ function random() {
       inputsol.value = puzsol;
     });
 }
+
+
+
 
 function Colorinput() {
   colorchange = document.getElementById("colorinput_1").value;
